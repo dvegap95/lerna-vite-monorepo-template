@@ -93,7 +93,7 @@
     "eslint-plugin-typescript-sort-keys": "^3.3.0",
     "http-server": "^14.1.1",
     "husky": "^9.1.7",
-    "jsdom": "^26.0.0",
+    "jsdom": "^29.1.1",
     "lerna": "^8.2.1",
     "lint-staged": "^15.5.0",
     "playwright": "^1.51.0",
