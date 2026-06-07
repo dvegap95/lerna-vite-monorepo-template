@@ -105,7 +105,7 @@
     "vite-live-preview": "^0.1.4",
     "vite-plugin-turbosnap": "^1.0.3",
     "vitest": "^3.0.9",
-    "vitest-preview": "^0.0.1",
+    "vitest-preview": "^0.0.3",
     "wait-on": "^8.0.3"
   }
 }
