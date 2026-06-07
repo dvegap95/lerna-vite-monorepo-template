@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "../../",
+    "paths": {
+      "@/*": ["packages/example-app/src/*"],
+      "@monorepo/common-lib/*": ["packages/common-lib/src/*"]
+    }
+  },
+  "include": ["src"]
+}

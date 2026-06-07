@@ -1,0 +1,23 @@
+{
+  "name": "@monorepo/example-app",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "homepage": "apps/example-app",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build --mode production",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives",
+    "lint:ci": "tsc && eslint . --ext ts,tsx --report-unused-disable-directives",
+    "preview": "vite preview",
+    "start": "vite-live-preview --reload",
+    "test": "cross-env NODE_ENV=test vitest run --passWithNoTests",
+    "test:ci": "cross-env NODE_ENV=test vitest run --coverage --passWithNoTests",
+    "storybook": "storybook dev -p 6002",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@monorepo/common-lib": "*",
+    "@monorepo/react-embed": "*"
+  }
+}

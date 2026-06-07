@@ -1,0 +1,7 @@
+{
+  "openFilesWhenDone": ["___FTName___.tsx", "use___FTName___.tsx", "styled___FTName___.tsx"],
+  "templateNotation": {
+    "start": ["<", "[", "___"],
+    "end": ["___", "]", ">"]
+  }
+}

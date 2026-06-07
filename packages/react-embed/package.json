@@ -1,0 +1,13 @@
+{
+  "name": "@monorepo/react-embed",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "src/main.ts",
+  "exports": {
+    ".": "./src/main.ts"
+  },
+  "scripts": {
+    "test": "cross-env NODE_ENV=test vitest run"
+  }
+}

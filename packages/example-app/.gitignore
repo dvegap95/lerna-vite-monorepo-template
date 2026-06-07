@@ -1,0 +1,8 @@
+node_modules/
+dist/
+coverage/
+*storybook.log
+.vscode
+vite.config.*.timestamp*
+storybook-static
+.vitest-preview

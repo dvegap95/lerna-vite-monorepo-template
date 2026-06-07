@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "jsxImportSource": "@emotion/react",
+    "paths": {
+      "@monorepo/common-lib/*": ["packages/common-lib/src/*"],
+      "@monorepo/design-hub/*": ["packages/design-hub/src/*"],
+      "@/*": [
+        "packages/___FTName___/src/*",
+        "packages/common-lib/src/*",
+        "packages/design-hub/src/*"
+      ]
+    }
+  },
+  "include": ["src"]
+}

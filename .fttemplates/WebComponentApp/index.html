@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/Monorepo_logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>___FTName|sentencecase___</title>
+  </head>
+  <body
+    style="height: calc(100vh - 90px); padding: 0; margin: 0; margin-top: 90px"
+  >
+  <___FTName___
+    styles-dir="/apps/___FTName___/css"
+    use-shadow-dom="false"
+    business-id="1"
+    store-id="2"
+    multistore-id="3"
+  ></___FTName___>
+  <script type="module" src="/src/main.tsx"></script>
+    <script>
+      document.body.onload = () => {
+        const rootelement = document.querySelector('___FTName___');
+        rootelement.baseBreadcrumb = [{ label: 'Home'}];
+      };
+    </script>
+  </body>
+</html>

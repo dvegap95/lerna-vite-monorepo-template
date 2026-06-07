@@ -1,0 +1,21 @@
+{
+  "name": "@monorepo/common-lib",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*"
+  },
+  "scripts": {
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --fix",
+    "lint:ci": "tsc && eslint . --ext ts,tsx --report-unused-disable-directives",
+    "storybook": "storybook dev -p 6001",
+    "build-storybook": "storybook build -o .storybook/dist --disable-telemetry",
+    "test": "cross-env NODE_ENV=test vitest run",
+    "test:ci": "cross-env NODE_ENV=test vitest run --coverage --silent"
+  },
+  "dependencies": {
+    "@monorepo/react-embed": "*"
+  }
+}

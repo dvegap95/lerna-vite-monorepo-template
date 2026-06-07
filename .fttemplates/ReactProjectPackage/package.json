@@ -1,0 +1,30 @@
+{
+  "name": "@monorepo/___FTName___",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "homepage": "apps/___FTName___",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build --mode production",
+    "deploy": "# TODO:",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives",
+    "lint:ci": "tsc && eslint . --ext ts,tsx --report-unused-disable-directives",
+    "preview": "vite preview",
+    "start": "vite-live-preview --reload",
+    "test": "NODE_ENV=test vitest run",
+    "test:ci": "NODE_ENV=test vitest --run --coverage",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "dev:lerna": "lerna run --scope @monorepo/___FTName___ dev",
+    "build:lerna": "lerna run --scope @monorepo/___FTName___ build",
+    "lint:lerna": "lerna run --scope @monorepo/___FTName___ lint",
+    "start:lerna": "lerna run --scope @monorepo/___FTName___ start",
+    "test:lerna": "lerna run --scope @monorepo/___FTName___ test",
+    "storybook:lerna": "lerna run --scope @monorepo/___FTName___ storybook"
+  },
+  "dependencies": {
+    "@monorepo/common-lib": "*",
+    "@monorepo/react-embed": "*"
+  }
+}

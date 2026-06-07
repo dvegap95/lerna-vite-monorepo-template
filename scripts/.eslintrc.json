@@ -1,0 +1,18 @@
+{
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "parserOptions": {
+        "ecmaVersion": 6
+      },
+      "rules": {
+        "no-console": "off",
+        "@typescript-eslint/no-unsafe-argument": "off",
+        "@typescript-eslint/no-var-requires": "off"
+      },
+      "env": {
+        "node": true
+      }
+    }
+  ]
+}

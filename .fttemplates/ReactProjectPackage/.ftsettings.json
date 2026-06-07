@@ -1,0 +1,7 @@
+{
+  "customVariables": ["mainFeatureName=>feature1"],
+  "templateNotation": {
+    "start": ["<", "[", "___"],
+    "end": ["___", "]", ">"]
+  }
+}

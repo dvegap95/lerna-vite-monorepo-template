@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "target": "ESNext",
+    "sourceMap": false,
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "moduleResolution": "bundler",
+    "jsxImportSource": "@emotion/react",
+    "types": ["vite/client", "@testing-library/jest-dom", "vitest"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@testing-library",
+      "./node_modules"
+    ],
+    "declaration": true,
+    "isolatedModules": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "declarationMap": false,
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "emitDeclarationOnly": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "outDir": "dist",
+  },
+  "exclude": [".fttemplates/**/*"]
+}

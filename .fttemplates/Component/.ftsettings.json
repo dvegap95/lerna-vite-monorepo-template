@@ -1,0 +1,8 @@
+{
+  "openFilesWhenDone": ["___FTName___.tsx", "use___FTName___.tsx", "styled___FTName___.tsx"],
+  "customVariables": ["DOMNodeType=>HTMLElement"],
+  "templateNotation": {
+    "start": ["<", "[", "___"],
+    "end": ["___", "]", ">"]
+  }
+}
