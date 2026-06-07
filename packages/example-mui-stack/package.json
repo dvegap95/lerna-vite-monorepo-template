@@ -1,0 +1,25 @@
+{
+  "name": "@monorepo/example-mui-stack",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Optional example showcasing MUI + ag-grid + Redux-style stack (not required for base monorepos)",
+  "scripts": {
+    "build": "vite build",
+    "test": "cross-env NODE_ENV=test vitest run",
+    "test:ci": "cross-env NODE_ENV=test vitest run --coverage",
+    "storybook": "storybook dev -p 6003",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.4.8",
+    "ag-grid-community": "^33.2.1",
+    "ag-grid-react": "^33.2.1"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

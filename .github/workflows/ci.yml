@@ -35,3 +35,28 @@ jobs:
 
       - name: Build
         run: yarn build
+
+  storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Install Playwright
+        run: npx playwright install chromium --with-deps
+
+      - name: Build Storybook
+        run: yarn build-storybook
+
+      - name: Run Storybook tests
+        run: yarn test-storybook:ci

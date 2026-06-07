@@ -6,10 +6,10 @@ Configuration lives in [`monorepo.config.json`](../monorepo.config.json).
 
 ## react-embed
 
-| Mode                | Location                     | Dependency                               |
-| ------------------- | ---------------------------- | ---------------------------------------- |
-| **Local (default)** | `packages/react-embed/`      | `"@monorepo/react-embed": "workspace:*"` |
-| **External**        | separate repo / npm registry | `"@your-org/react-embed": "^1.0.0"`      |
+| Mode                | Location                                                        | Dependency                               |
+| ------------------- | --------------------------------------------------------------- | ---------------------------------------- |
+| **Local (default)** | `packages/react-embed/`                                         | `"@monorepo/react-embed": "workspace:*"` |
+| **External**        | [dvegap95/react-embed](https://github.com/dvegap95/react-embed) | `"@dvegap95/react-embed": "^0.1.0"`      |
 
 ### Dependency graph
 
@@ -28,8 +28,8 @@ After publishing `react-embed` from its own repo:
 ```bash
 yarn use:external-package \
   --package react-embed \
-  --npm @your-org/react-embed \
-  --version ^1.0.0
+  --npm @dvegap95/react-embed \
+  --version ^0.1.0
 
 yarn install
 yarn test

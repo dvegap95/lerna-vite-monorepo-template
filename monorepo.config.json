@@ -4,10 +4,10 @@
     "react-embed": {
       "localPath": "packages/react-embed",
       "workspaceName": "@monorepo/react-embed",
-      "externalName": null,
-      "externalVersion": null,
-      "repository": null,
-      "description": "Web component base class for embedding React apps. Vendored locally until published from a separate repo."
+      "externalName": "@dvegap95/react-embed",
+      "externalVersion": "^0.1.0",
+      "repository": "https://github.com/dvegap95/react-embed",
+      "description": "Web component base class for embedding React apps. Vendored locally; published from https://github.com/dvegap95/react-embed"
     }
   }
 }

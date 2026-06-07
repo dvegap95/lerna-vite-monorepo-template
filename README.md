@@ -1,174 +1,90 @@
 # Lerna + Vite Monorepo Template
 
-A starter template for React monorepos using **Yarn workspaces**, **Lerna**, **Vite**, **Vitest**, and **Storybook**. It includes shared tooling, a component library scaffold, web-component embedding, and an example app.
+A starter template for React monorepos using **Yarn workspaces**, **Lerna**, **Vite**, **Vitest**, and **Storybook**.
 
-Use this repo as a [GitHub template](https://github.com/dvegap95/lerna-vite-monorepo-template/generate) or clone it to bootstrap a new monorepo with the same setup.
+[Use this template on GitHub](https://github.com/dvegap95/lerna-vite-monorepo-template/generate) · [react-embed (standalone)](https://github.com/dvegap95/react-embed)
 
 ## Stack
 
-| Tool                                                     | Purpose                                          |
-| -------------------------------------------------------- | ------------------------------------------------ |
-| [Yarn 3](https://yarnpkg.com/)                           | Package manager with workspaces                  |
-| [Lerna 8](https://lerna.js.org/)                         | Independent versioning and cross-package scripts |
-| [Vite 6](https://vite.dev/)                              | Dev server, builds, and shared config            |
-| [Vitest 3](https://vitest.dev/)                          | Unit tests with jsdom                            |
-| [Storybook 8](https://storybook.js.org/)                 | Component documentation and visual testing       |
-| [Emotion](https://emotion.sh/)                           | CSS-in-JS styling                                |
-| [TypeScript 5](https://www.typescriptlang.org/)          | Static typing                                    |
-| [ESLint + Prettier](https://eslint.org/)                 | Linting and formatting                           |
-| [Husky + lint-staged](https://typicode.github.io/husky/) | Pre-commit hooks                                 |
-
-Optional hoisted deps (MUI, ag-grid, Redux) are available at the root for apps that need them — see `vitest.setup.tsx` for related test mocks.
+| Tool                      | Purpose                               |
+| ------------------------- | ------------------------------------- |
+| Yarn 3 + Lerna 8          | Workspaces and independent versioning |
+| Vite 6 + Vitest 3         | Build and unit tests                  |
+| Storybook 8 + test-runner | Component docs and interaction tests  |
+| Changesets                | Versioning and npm publish workflow   |
+| Husky + lint-staged       | Pre-commit lint/format                |
+| Emotion + TypeScript      | Styling and types                     |
 
 ## Quick start
-
-### Prerequisites
-
-- Node.js 20+ (see `.nvmrc`)
-- Corepack enabled (for Yarn 3)
 
 ```bash
 corepack enable
 yarn install
-```
-
-### First-time setup after cloning
-
-Rename the placeholder scope:
-
-```bash
-yarn init:monorepo --scope @your-org
-yarn install
-```
-
-### Run the example app
-
-```bash
-yarn dev:example-app
-# → http://localhost:3000/apps/example-app/
-```
-
-### Run tests
-
-```bash
+yarn init:monorepo --scope @your-org   # rename @monorepo scope
+yarn dev:example-app                   # http://localhost:3000/apps/example-app/
 yarn test
-yarn test:diff    # only files changed vs main
-yarn test:ui      # Vitest UI
-```
-
-## Repository structure
-
-```
-.
-├── .devcontainer/         # VS Code / GitHub Codespaces config
-├── .fttemplates/          # Folder Templates for scaffolding
-├── .github/               # CI workflow + Dependabot
-├── .husky/                # Git hooks (lint-staged on pre-commit)
-├── .storybook/            # Shared Storybook config
-├── .vscode/               # Recommended extensions + settings
-├── docs/
-│   └── EXTERNAL_PACKAGES.md   # Swapping vendored packages for npm
-├── middlewares/           # Vite plugins (dynamic @/ alias)
-├── monorepo.config.json     # Scope + replaceable package registry
-├── packages/
-│   ├── common-lib/        # Shared library + test utilities + MyButton
-│   ├── react-embed/       # Vendored web-component base (→ external npm)
-│   └── example-app/       # Reference Vite app
-├── scripts/
-│   ├── init-monorepo.mjs          # Rename @monorepo scope
-│   └── use-external-package.mjs   # Swap vendored pkg for npm
-├── vite.config.mts        # Shared getBaseConfig()
-├── vitest.setup.tsx       # Global test mocks
-└── vitest.workspace.ts
 ```
 
 ## Packages
 
-### `@monorepo/common-lib`
+| Package             | Role                                                                                               |
+| ------------------- | -------------------------------------------------------------------------------------------------- |
+| `common-lib`        | Shared library, test utilities, MyButton example, WebComponentApp                                  |
+| `react-embed`       | **Vendored** web-component base — canonical repo: [dvegap95/react-embed](docs/REACT_EMBED_REPO.md) |
+| `example-app`       | Minimal Vite app (Emotion only)                                                                    |
+| `example-mui-stack` | **Optional** MUI + ag-grid demo — delete if not needed                                             |
 
-Shared library with MyButton example, Component Test Object utilities, `WebComponentApp`, and `dynamicConfig`.
+## Scripts
 
-Depends on `@monorepo/react-embed` via `workspace:*`. Apps should import `WebComponentApp` from common-lib, not react-embed directly.
+| Script                            | Description                                                                           |
+| --------------------------------- | ------------------------------------------------------------------------------------- |
+| `yarn init:monorepo --scope @org` | Rename `@monorepo` everywhere                                                         |
+| `yarn use:external-package`       | Swap vendored package for npm (see [EXTERNAL_PACKAGES.md](docs/EXTERNAL_PACKAGES.md)) |
+| `yarn enable:github-template`     | Enable GitHub template mode (needs `GITHUB_TOKEN`)                                    |
+| `yarn changeset`                  | Add a changeset for publishable packages                                              |
+| `yarn version:packages`           | Apply changesets and bump versions                                                    |
+| `yarn release:packages`           | Build and publish to npm                                                              |
+| `yarn test-storybook:ci`          | Build Storybook + run Playwright interaction tests                                    |
+| `yarn start:mui-stack`            | Storybook for optional MUI/ag-grid example (port 6003)                                |
 
-### `@monorepo/react-embed` (vendored / replaceable)
+## External packages (react-embed)
 
-Local copy of the web-component embedding library. Marked with `.external-package` — intended to move to a **separate repository** and be consumed as an npm dependency.
-
-See [docs/EXTERNAL_PACKAGES.md](docs/EXTERNAL_PACKAGES.md).
-
-### `@monorepo/example-app`
-
-Reference app registered as `<example-app>`. Depends only on `common-lib`.
-
-## Replaceable packages (react-embed)
-
-The template vendors `react-embed` so it works immediately. When you publish it externally:
+`react-embed` is vendored for zero setup but lives in its own repo:
 
 ```bash
 yarn use:external-package \
   --package react-embed \
-  --npm @your-org/react-embed \
-  --version ^1.0.0
-
-yarn install && yarn test
+  --npm @dvegap95/react-embed \
+  --version ^0.1.0
 ```
 
-This removes `packages/react-embed/`, updates all `package.json` references, and records the external name in `monorepo.config.json`.
+See [docs/EXTERNAL_PACKAGES.md](docs/EXTERNAL_PACKAGES.md) and [docs/REACT_EMBED_REPO.md](docs/REACT_EMBED_REPO.md).
 
-**Design rule:** only import from `@monorepo/react-embed` (package entry), never from deep paths — so the swap is a dependency change, not a refactor.
+## CI & release
 
-## Root scripts
+- **CI** (`.github/workflows/ci.yml`) — lint, test, build + Storybook test-runner
+- **Release** (`.github/workflows/release.yml`) — Changesets version PRs and npm publish (set `NPM_TOKEN` secret)
+- **Dependabot** — weekly dependency updates
 
-| Script                            | Description                                             |
-| --------------------------------- | ------------------------------------------------------- |
-| `yarn init:monorepo --scope @org` | Rename `@monorepo` scope across the repo                |
-| `yarn use:external-package`       | Swap a vendored package for npm                         |
-| `yarn build`                      | Build all packages                                      |
-| `yarn test`                       | Run all package tests                                   |
-| `yarn lint`                       | ESLint across the monorepo                              |
-| `yarn test:diff`                  | Test changed files only (used in CI-friendly workflows) |
-| `yarn storybook`                  | Root Storybook (port 6006)                              |
-| `yarn dev:example-app`            | Example app dev server                                  |
+## Enable GitHub template mode
 
-## Creating a new package
+Either manually: **Settings → General → Template repository**, or:
 
-Use **Folder Templates** (`.fttemplates/`) with the [Folder Templates](https://marketplace.visualstudio.com/items?itemName=Huuums.vscode-fast-folder-structure) extension:
+```bash
+GITHUB_TOKEN=ghp_... yarn enable:github-template
+```
 
-- `Component/` — component + hook + styles + tests + stories
-- `View/` — page-level view
-- `ReactProjectPackage/` — minimal Vite SPA
-- `WebComponentApp/` — custom element app
+## Optional MUI / ag-grid stack
 
-Or manually create `packages/my-app/` extending root `getBaseConfig()`.
+Heavy dependencies (MUI, ag-grid, Redux patterns) live in `packages/example-mui-stack/` only — not in the lean root. Remove that package entirely if your monorepo won't use them.
+
+## Creating packages
+
+Use `.fttemplates/` with the Folder Templates VS Code extension: `Component`, `View`, `ReactProjectPackage`, `WebComponentApp`.
 
 ## Testing conventions
 
-```
-Component/
-├── Component.tsx
-├── __tests__/
-│   ├── Component.test.tsx
-│   └── Component.to.ts      # Component Test Object
-```
-
-```ts
-const button = MyButtonTestObject.getInstance();
-expect(button).toBeInTheDocument();
-await button.click();
-```
-
-## CI & quality
-
-- **GitHub Actions** — lint, test, build on push/PR (`.github/workflows/ci.yml`)
-- **Dependabot** — weekly npm + monthly GitHub Actions updates
-- **Husky** — runs `lint-staged` (ESLint + Prettier) on pre-commit
-- **Devcontainer** — reproducible Node 20 environment
-
-## Publishing packages
-
-1. Set `"private": false` in the target `package.json`
-2. Configure registry in `lerna.json`
-3. `npx lerna version --no-private && npx lerna publish from-package`
+Component Test Object pattern in `__tests__/*.to.ts` — see `packages/common-lib/src/components/MyButton/`.
 
 ## License
 

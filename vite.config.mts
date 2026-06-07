@@ -25,11 +25,12 @@ type Config = UserConfig &
 
 const moduleChunkMap = {
   'ag-grid': 'ag-grid',
-  mui: 'mui',
 };
 
-export const getBaseConfig = ({ plugins = [], lib, ...rest }: Config) =>
-  defineConfig({
+export const getBaseConfig = ({ plugins = [], lib, ...rest }: Config) => {
+  const { setupFiles: extraSetupFiles, ...restTest } = rest.test ?? {};
+
+  return defineConfig({
     plugins: [
       pluginReact({
         jsxImportSource: '@emotion/react',
@@ -106,8 +107,6 @@ export const getBaseConfig = ({ plugins = [], lib, ...rest }: Config) =>
     test: {
       environment: 'jsdom',
       globals: true,
-      // eslint-disable-next-line no-undef
-      setupFiles: [path.join(__dirname, 'vitest.setup.tsx')],
       include: ['**/__tests__/**/*.test.{ts,tsx}'],
       css: {
         modules: {
@@ -128,9 +127,14 @@ export const getBaseConfig = ({ plugins = [], lib, ...rest }: Config) =>
       minThreads: 1,
       maxConcurrency: 1,
       pool: 'threads',
-      ...rest.test,
+      ...restTest,
+      setupFiles: [
+        path.join(__dirname, 'vitest.setup.tsx'),
+        ...(extraSetupFiles ?? []),
+      ],
     },
   } as VitestUserConfig);
+};
 
 export default getBaseConfig({
   lib: {

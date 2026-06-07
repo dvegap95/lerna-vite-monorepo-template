@@ -39,7 +39,6 @@ module.exports = {
     'security',
     'prettier',
     'testing-library',
-    'mui-path-imports',
     'import',
   ],
   overrides: [
@@ -63,11 +62,11 @@ module.exports = {
         '@typescript-eslint/no-unsafe-member-access': 'off',
         '@typescript-eslint/no-unsafe-return': 'off',
         '@typescript-eslint/no-unsafe-argument': 'off',
-        
+
         '@typescript-eslint/consistent-type-imports': 'error',
         '@typescript-eslint/await-thenable': 'off',
-        
-        "react/prop-types": "off"  // Since we're using TypeScript
+
+        'react/prop-types': 'off', // Since we're using TypeScript
       },
     },
   ],
@@ -95,7 +94,6 @@ module.exports = {
     // triggering when using within for queries or when no direct screen.someQuery call which is required for the ComponentPageObject pattern
     'testing-library/prefer-screen-queries': 'off',
     'prettier/prettier': 'error',
-    'mui-path-imports/mui-path-imports': 'error',
     'testing-library/render-result-naming-convention': 'off',
     'no-duplicate-imports': 'error',
     'no-console': 'warn',
@@ -104,20 +102,20 @@ module.exports = {
     'import/order': [
       'error',
       {
-        'groups': [
-          'builtin',  // Node "builtin" modules like fs, path etc.
+        groups: [
+          'builtin', // Node "builtin" modules like fs, path etc.
           'external', // "external" modules like lodash, react etc.
           'internal', // "internal" modules
           ['parent', 'sibling', 'index'], // Parent, sibling, and index files
         ],
-        'pathGroups': [
+        pathGroups: [
           {
             pattern: '@/**', // Adjust this pattern to match your project's absolute paths
             group: 'internal',
             position: 'before',
           },
         ],
-        'pathGroupsExcludedImportTypes': ['builtin', 'external'],
+        pathGroupsExcludedImportTypes: ['builtin', 'external'],
         'newlines-between': 'always', // Ensure new lines between groups
       },
     ],

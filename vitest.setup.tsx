@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-console */
-import { createElement, useEffect } from 'react';
 import { vi } from 'vitest';
 import { config } from 'react-transition-group';
 import { DynamicConfigContext } from 'packages/common-lib/src/utils/dynamicConfig';
@@ -39,42 +38,6 @@ vi.mock('@monorepo/common-lib/utils/dynamicConfig', async () => {
           {props.children}
         </DynamicConfigContext.Provider>
       );
-    },
-  };
-});
-
-vi.mock('ag-grid-react', async () => {
-  const actualModule = await vi.importActual('ag-grid-react');
-  return {
-    ...actualModule,
-    AgGridReact: (props: any) =>
-      createElement(actualModule.AgGridReact as any, {
-        ...props,
-        // eslint-disable-next-line spellcheck/spell-checker
-        suppressRowVirtualisation: true,
-        // eslint-disable-next-line spellcheck/spell-checker
-        suppressColumnVirtualisation: true,
-      }),
-  };
-});
-
-// MUI Dialog can hang resetting aria-hidden in jsdom
-vi.mock('@mui/material/Dialog', async () => {
-  const actualModule = await vi.importActual('@mui/material/Dialog');
-  return {
-    ...actualModule,
-    default: function Dialog(props: any) {
-      useEffect(() => {
-        if (!props.open) {
-          setTimeout(() => {
-            document.body
-              .querySelector('div:first-of-type')
-              ?.removeAttribute('aria-hidden');
-          });
-        }
-      }, [props.open]);
-
-      return createElement(actualModule.default as any, props);
     },
   };
 });

@@ -1,32 +1,23 @@
 # @monorepo/react-embed
 
-> **Vendored / replaceable package** — this folder exists so the template works out of the box. When you publish `react-embed` from a separate repository, swap it for the npm package:
+> **Vendored / replaceable package** — local copy for zero-config bootstrapping.
+
+**Canonical source:** [github.com/dvegap95/react-embed](https://github.com/dvegap95/react-embed) (`@dvegap95/react-embed`)
+
+Swap when ready:
 
 ```bash
-yarn use:external-package --package react-embed --npm @your-org/react-embed --version ^1.0.0
+yarn use:external-package --package react-embed --npm @dvegap95/react-embed --version ^0.1.0
 ```
 
-See [docs/EXTERNAL_PACKAGES.md](../../docs/EXTERNAL_PACKAGES.md) for the full migration guide.
+See [docs/EXTERNAL_PACKAGES.md](../../docs/EXTERNAL_PACKAGES.md).
 
 ## Public API
 
-Consumers should import **only** from the package entry point:
+Import only from the package entry:
 
 ```ts
 import ReactEmbed from '@monorepo/react-embed';
-// or
-import { ReactEmbed, ReactEmbedConfigContext } from '@monorepo/react-embed';
 ```
 
-Do not import from deep paths inside this package — that keeps migration to an external package a dependency change, not a code refactor.
-
-## Extracting to a separate repo
-
-When publishing externally, this package should:
-
-1. Keep the same export surface (`"."` → main entry with `ReactEmbed` default export)
-2. Declare `react` and `react-dom` as peer dependencies
-3. Ship as ESM (`"type": "module"`)
-4. Include its own Vitest suite (copy `src/__tests__/`)
-
-After publishing, remove this folder from the monorepo and run the swap script above.
+Do not use deep paths — keeps external migration to a dependency change only.
