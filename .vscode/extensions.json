@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "vitest.explorer",
+    "hbenl.vscode-test-explorer",
+    "hungnv13.folder-templates",
+    "bradlc.vscode-tailwindcss"
+  ]
+}

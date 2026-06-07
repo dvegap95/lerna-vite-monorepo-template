@@ -24,7 +24,6 @@
     "storybook:lerna": "lerna run --scope @monorepo/___FTName___ storybook"
   },
   "dependencies": {
-    "@monorepo/common-lib": "*",
-    "@monorepo/react-embed": "*"
+    "@monorepo/common-lib": "workspace:*"
   }
 }

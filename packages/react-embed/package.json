@@ -8,6 +8,11 @@
     ".": "./src/main.ts"
   },
   "scripts": {
+    "build": "vite build",
     "test": "cross-env NODE_ENV=test vitest run"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }

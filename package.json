@@ -5,6 +5,9 @@
     "packages/*"
   ],
   "scripts": {
+    "prepare": "husky",
+    "init:monorepo": "node scripts/init-monorepo.mjs",
+    "use:external-package": "node scripts/use-external-package.mjs",
     "start:common-lib": "lerna run --scope @monorepo/common-lib storybook --stream",
     "build:common-lib": "lerna run --scope @monorepo/common-lib build --stream",
     "test:common-lib": "lerna run --scope @monorepo/common-lib test --stream",
@@ -13,10 +16,20 @@
     "build": "lerna run build --stream",
     "test": "lerna run test --stream",
     "lint": "eslint .",
+    "lint:ci": "yarn lint",
     "test:ui": "cross-env NODE_ENV=test vitest --ui --coverage",
     "test:diff": "cross-env NODE_ENV=test node ./scripts/test-git-changes.js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,mjs,cjs,json,md,yml,yaml}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@emotion/css": "^11.13.5",
@@ -79,8 +92,10 @@
     "eslint-plugin-storybook": "^0.11.6",
     "eslint-plugin-testing-library": "^7.1.1",
     "eslint-plugin-typescript-sort-keys": "^3.3.0",
+    "husky": "^9.1.7",
     "jsdom": "^26.0.0",
     "lerna": "^8.2.1",
+    "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
     "sass": "^1.86.0",
     "storybook": "^8.6.7",

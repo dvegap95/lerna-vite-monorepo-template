@@ -17,7 +17,6 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@monorepo/common-lib": "*",
-    "@monorepo/react-embed": "*"
+    "@monorepo/common-lib": "workspace:*"
   }
 }

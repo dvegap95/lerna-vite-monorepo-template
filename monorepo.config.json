@@ -1,0 +1,13 @@
+{
+  "scope": "@monorepo",
+  "replaceablePackages": {
+    "react-embed": {
+      "localPath": "packages/react-embed",
+      "workspaceName": "@monorepo/react-embed",
+      "externalName": null,
+      "externalVersion": null,
+      "repository": null,
+      "description": "Web component base class for embedding React apps. Vendored locally until published from a separate repo."
+    }
+  }
+}

@@ -73,21 +73,25 @@ export const getBaseConfig = ({ plugins = [], lib, ...rest }: Config) =>
       },
       rollupOptions: {
         output: {
-          entryFileNames: 'main.js',
-          manualChunks(id, { getModuleInfo }) {
-            for (const [key, value] of Object.entries(moduleChunkMap)) {
-              const valueArr = Array.isArray(value) ? value : [value];
-              if (valueArr.some((v) => id.includes(v))) {
-                return key;
-              }
-            }
-            const size = getModuleInfo(id)?.code?.length || 0;
-            if (size > 40000) {
-              // eslint-disable-next-line no-console
-              console.log('Large content file imported:', id, size);
-            }
-          },
-          chunkFileNames: 'js/[name].[hash].js',
+          entryFileNames: lib ? '[name].js' : 'main.js',
+          ...(lib
+            ? {}
+            : {
+                manualChunks(id, { getModuleInfo }) {
+                  for (const [key, value] of Object.entries(moduleChunkMap)) {
+                    const valueArr = Array.isArray(value) ? value : [value];
+                    if (valueArr.some((v) => id.includes(v))) {
+                      return key;
+                    }
+                  }
+                  const size = getModuleInfo(id)?.code?.length || 0;
+                  if (size > 40000) {
+                    // eslint-disable-next-line no-console
+                    console.log('Large content file imported:', id, size);
+                  }
+                },
+                chunkFileNames: 'js/[name].[hash].js',
+              }),
           assetFileNames: (assetInfo) => {
             if (assetInfo.name?.endsWith('.css')) {
               return `css/${assetInfo.name}`;

@@ -1,6 +1,5 @@
 node_modules/
 *storybook.log
-.vscode
 vite.config.*.timestamp*
 storybook-static
 .vitest-preview

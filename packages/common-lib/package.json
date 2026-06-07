@@ -12,10 +12,15 @@
     "lint:ci": "tsc && eslint . --ext ts,tsx --report-unused-disable-directives",
     "storybook": "storybook dev -p 6001",
     "build-storybook": "storybook build -o .storybook/dist --disable-telemetry",
+    "build": "vite build",
     "test": "cross-env NODE_ENV=test vitest run",
     "test:ci": "cross-env NODE_ENV=test vitest run --coverage --silent"
   },
   "dependencies": {
-    "@monorepo/react-embed": "*"
+    "@monorepo/react-embed": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
