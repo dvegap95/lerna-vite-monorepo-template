@@ -2055,7 +2055,7 @@ __metadata:
     "@testing-library/jest-dom": ^6.6.3
     "@testing-library/react": ^16.2.0
     "@testing-library/user-event": ^14.6.1
-    "@types/react": ^18.3.20
+    "@types/react": ^19.2.17
     "@types/react-dom": ^18.3.6
     "@typescript-eslint/eslint-plugin": ^8.28.0
     "@typescript-eslint/parser": ^8.28.0
@@ -2088,7 +2088,7 @@ __metadata:
     lint-staged: ^15.5.0
     playwright: ^1.51.0
     prettier: ^3.5.3
-    react: ^18.3.1
+    react: ^19.2.7
     react-dom: ^18.3.1
     react-transition-group: ^4.4.5
     sass: ^1.86.0
@@ -4198,7 +4198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*, @types/prop-types@npm:^15.7.14":
+"@types/prop-types@npm:^15.7.14":
   version: 15.7.15
   resolution: "@types/prop-types@npm:15.7.15"
   checksum: 31aa2f59b28f24da6fb4f1d70807dae2aedfce090ec63eaf9ea01727a9533ef6eaf017de5bff99fbccad7d1c9e644f52c6c2ba30869465dd22b1a7221c29f356
@@ -4237,13 +4237,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.3.20":
-  version: 18.3.31
-  resolution: "@types/react@npm:18.3.31"
+"@types/react@npm:^19.2.17":
+  version: 19.2.17
+  resolution: "@types/react@npm:19.2.17"
   dependencies:
-    "@types/prop-types": "*"
     csstype: ^3.2.2
-  checksum: fe17985f3debdc83e1804102b51e0a59ba64295c2f10de92ba8c7c8276b70ac3b11bf19870d31279feaa20b00e8d77fa7a17852137a2beba8fad45350bc66d76
+  checksum: 9704dc2001b6bcc32efc6e3fe144e18c411d5ee8a5c8dfe572535e44bd300424c4e7bddc9314299eeec28efb547816368b5c9851c93a3082e8ad1265786f3d31
   languageName: node
   linkType: hard
 
@@ -13457,19 +13456,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
+"react@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react@npm:^19.2.7":
   version: 19.2.7
   resolution: "react@npm:19.2.7"
   checksum: be94ec2f1779b27cac328ddae18e52933c2977a2425b67039229ead45c62d0363b66e894076236616c8d98821a9a760fcbab8a9da8ae9c4b2849dfd12cc32a46
-  languageName: node
-  linkType: hard
-
-"react@npm:^18.3.1":
-  version: 18.3.1
-  resolution: "react@npm:18.3.1"
-  dependencies:
-    loose-envify: ^1.1.0
-  checksum: a27bcfa8ff7c15a1e50244ad0d0c1cb2ad4375eeffefd266a64889beea6f6b64c4966c9b37d14ee32d6c9fcd5aa6ba183b6988167ab4d127d13e7cb5b386a376
   languageName: node
   linkType: hard
 
