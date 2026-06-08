@@ -2014,7 +2014,7 @@ __metadata:
     "@emotion/react": ^11.14.0
     "@emotion/styled": ^11.14.0
     "@mui/material": ^6.4.8
-    ag-grid-community: ^33.2.1
+    ag-grid-community: ^35.3.1
     ag-grid-react: ^33.2.1
   peerDependencies:
     react: ^18.3.1
@@ -4878,12 +4878,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ag-grid-community@npm:33.3.2, ag-grid-community@npm:^33.2.1":
+"ag-charts-types@npm:13.3.1":
+  version: 13.3.1
+  resolution: "ag-charts-types@npm:13.3.1"
+  checksum: 619a4cc091b2d3f5715780f34d2effc1926fce715b3cbe20b4b0d5fd6269ca56b3a00d3eb4db11377d36872214085ae8bc1dc7b24a945a63cec6a571525e5a5a
+  languageName: node
+  linkType: hard
+
+"ag-grid-community@npm:33.3.2":
   version: 33.3.2
   resolution: "ag-grid-community@npm:33.3.2"
   dependencies:
     ag-charts-types: 11.3.2
   checksum: c9afd84207ff0cde9ce64d9a3285e042dc12981aa9e59f476bcc5f896e92cb53c1da030181f2de87433e1503946721019a2b8f7bb24d2d974e7d54a4a112eab3
+  languageName: node
+  linkType: hard
+
+"ag-grid-community@npm:^35.3.1":
+  version: 35.3.1
+  resolution: "ag-grid-community@npm:35.3.1"
+  dependencies:
+    ag-charts-types: 13.3.1
+  checksum: e87348cdeeeed6d5854e18f2ef8a757649502902383edeaeac8beede3460fb3a5de411593f5b111464052dca663f1413075db728fe44ff3f1020b318da0944d2
   languageName: node
   linkType: hard
 
